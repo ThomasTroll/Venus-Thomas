@@ -1,0 +1,59 @@
+.smiley{
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    background: linear-gradient(40deg, #ff9c33 0%, #ffda37 60%);
+    position: relative;
+}
+
+.smiley::before, .smiley::after{
+    content: "";
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    border-radius: 100%;
+    top: 40%;
+    background-color: black;
+    transition: 0.5s;
+    animation: 2s ease-in infinite blinking;
+}
+
+.smiley::before{
+    left: 37%;
+}
+
+.smiley::after{
+    right: 7%;
+}
+
+.mouth{
+    position: absolute;
+    width: 82px;
+    height: 15px;
+    background-color: black;
+    top: 55%;
+    left: 50%;
+    transition: 0.5s;
+    animation: blinking 6s 1s infinite;
+}
+
+.smiley:hover::before{
+    left: 20%;
+}
+
+.smiley:hover::after{
+    right: 20%;
+}
+
+.smiley:hover .mouth{
+    left: 35%;
+}
+
+@keyframes blinking{
+    0%{transform: scaleY(100%);} /* statut initial */
+    45%{transform: scaleY(100%);} /* statut initial */
+    50%{transform: scaleY(20%);} /* oeil se ferme */
+    55%{transform: scaleY(20%);} /* oeil fermé */
+    60%{transform: scaleY(100%);} /* oeil var se réouvrir (statut initial)*/
+    100%{transform: scaleY(100%);} /* statut initial */
+}
